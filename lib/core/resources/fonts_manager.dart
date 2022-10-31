@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movie_app_odc/core/resources/color_manager.dart';
 
 class FontWeightManager {
   static const FontWeight bold = FontWeight.w700;
@@ -21,9 +22,9 @@ class FontSize {
 }
 
 class AppTextStyles {
-  static login() => GoogleFonts.salsa(
-      textStyle: const TextStyle(
-          color: Colors.white,
-          fontSize: FontSize.s35,
+  static login({double customFontSize=FontSize.s35,Color customColor= Colors.white}) => GoogleFonts.salsa(
+      textStyle:  TextStyle(
+          color: customColor,
+          fontSize: customFontSize,
           fontWeight: FontWeightManager.regular));
 }

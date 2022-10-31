@@ -6,10 +6,10 @@ import 'package:movie_app_odc/view/screens/search_screen.dart';
 
 import 'home_layout_states.dart';
 
-class AppCubit extends Cubit<HomeLayoutStates> {
-  AppCubit() : super(InitialAppState());
+class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
+  HomeLayoutCubit() : super(InitialAppState());
 
-  static AppCubit get(context) => BlocProvider.of(context);
+  static HomeLayoutCubit get(context) => BlocProvider.of(context);
 
   //bottom nav bar logic
   List screens = <Widget>[

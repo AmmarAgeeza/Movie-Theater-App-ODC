@@ -43,6 +43,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   bloc: ^8.1.0
   top_snackbar_flutter: ^2.1.1
+  carousel_slider: ^4.1.1
 
 dev_dependencies:
   flutter_test:
