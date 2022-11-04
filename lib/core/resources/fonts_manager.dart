@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie_app_odc/core/resources/color_manager.dart';
 
 class FontWeightManager {
   static const FontWeight bold = FontWeight.w700;

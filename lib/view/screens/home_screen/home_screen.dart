@@ -2,13 +2,13 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_odc/core/resources/color_manager.dart';
-import 'package:movie_app_odc/model/now_playing_movies_model.dart';
-import 'package:movie_app_odc/model/up_coming_movies_model.dart';
+import 'package:movie_app_odc/model/now_playing_movies_model/now_playing_movies_model.dart';
+import 'package:movie_app_odc/model/up_coming_movies_model/up_coming_movies_model.dart';
 import 'package:movie_app_odc/view_model/cubit/home_page_cubit/home_page_cubit.dart';
 import 'package:movie_app_odc/view_model/cubit/home_page_cubit/home_page_states.dart';
 
-import '../../core/resources/assets_manager.dart';
-import '../../core/resources/fonts_manager.dart';
+import '../../../core/resources/assets_manager.dart';
+import '../../../core/resources/fonts_manager.dart';
 
 class HomePageScreen extends StatelessWidget {
    const HomePageScreen({Key? key}) : super(key: key);
@@ -61,8 +61,8 @@ class HomePageScreen extends StatelessWidget {
                 ),
                 CarouselSlider(
                   items: HomePageCubit.get(context)
-                      .nowPlayingMoviesList!
-                      .map((e) => buildNowPlayingMovieItem(e))
+                      .upComingMoviesList!
+                      .map((e) => buildUpComingMovieItem(e))
                       .toList(),
                   options: CarouselOptions(
                     // aspectRatio:1.5,
@@ -70,7 +70,7 @@ class HomePageScreen extends StatelessWidget {
                     initialPage: 0,
                     enableInfiniteScroll: true,
                     reverse: false,
-                    // autoPlay: true,
+                    autoPlay: true,
                     autoPlayInterval: const Duration(seconds: 3),
                     autoPlayAnimationDuration: const Duration(seconds: 1),
                     autoPlayCurve: Curves.fastOutSlowIn,
@@ -106,7 +106,7 @@ class HomePageScreen extends StatelessWidget {
           ),
           drawer: SafeArea(
             child: Column(
-              children: [
+              children: const [
                 Text('ss'),
               ],
             ),
@@ -117,6 +117,7 @@ class HomePageScreen extends StatelessWidget {
   }
 
   Widget buildNowPlayingMovieItem(NowPlayingMoviesModel nowPlayingMoviesModel) {
+    print(nowPlayingMoviesModel.name);
     return Stack(
       alignment: AlignmentDirectional.bottomCenter,
       children: [
@@ -130,6 +131,7 @@ class HomePageScreen extends StatelessWidget {
   }
 
   Stack buildUpComingMovieItem(UpComingMoviesModel upComingMoviesModel) {
+    print(1);
     return Stack(
       alignment: AlignmentDirectional.bottomCenter,
       children: [

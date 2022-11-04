@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_odc/view_model/cubit/search_cubit/search_cubit.dart';
 import 'package:movie_app_odc/view_model/cubit/search_cubit/search_state.dart';
 
-import '../../core/resources/color_manager.dart';
-import '../../core/resources/fonts_manager.dart';
-import '../components/core_components/custom_text_form_field.dart';
+import '../../../core/resources/color_manager.dart';
+import '../../../core/resources/fonts_manager.dart';
+import '../../components/core_components/custom_text_form_field.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);

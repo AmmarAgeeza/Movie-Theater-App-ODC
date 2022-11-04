@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app_odc/core/resources/color_manager.dart';
 
-import '../../core/resources/assets_manager.dart';
-import '../../core/routes.dart';
-import '../../view_model/database/local/cache_helper.dart';
+import '../../../core/resources/assets_manager.dart';
+import '../../../core/routes.dart';
+import '../../../view_model/database/local/cache_helper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

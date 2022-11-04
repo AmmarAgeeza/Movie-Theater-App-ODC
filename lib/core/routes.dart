@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app_odc/view/screens/home_layout_screen.dart';
-import 'package:movie_app_odc/view/screens/home_screen.dart';
+import 'package:movie_app_odc/view/screens/home_layout_screen/home_layout_screen.dart';
+import 'package:movie_app_odc/view/screens/home_screen/home_screen.dart';
 
-import '../view/screens/checkout_screen.dart';
-import '../view/screens/favorite_screen.dart';
-import '../view/screens/login_screen.dart';
-import '../view/screens/menu_screen.dart';
-import '../view/screens/movie_detail_screen.dart';
-import '../view/screens/my_tickets_screen.dart';
-import '../view/screens/payment_screen.dart';
-import '../view/screens/register_screen.dart';
-import '../view/screens/reservation_screen.dart';
-import '../view/screens/search_screen.dart';
-import '../view/screens/splash_screen.dart';
-import '../view/screens/view_ticket_screen.dart';
+import '../view/screens/checkout_screen/checkout_screen.dart';
+import '../view/screens/favorite_screen/favorite_screen.dart';
+import '../view/screens/login_screen/login_screen.dart';
+import '../view/screens/menu_screen/menu_screen.dart';
+import '../view/screens/movie_detail_screen/movie_detail_screen.dart';
+import '../view/screens/my_tickets_screen/my_tickets_screen.dart';
+import '../view/screens/payment_screen/payment_screen.dart';
+import '../view/screens/register_screen/register_screen.dart';
+import '../view/screens/reservation_screen/reservation_screen.dart';
+import '../view/screens/search_screen/search_screen.dart';
+import '../view/screens/splash_screen/splash_screen.dart';
+import '../view/screens/view_ticket_screen/view_ticket_screen.dart';
 import 'resources/strings_manager.dart';
 
 class Routes {
@@ -39,7 +39,7 @@ class RoutesGenerator {
       case Routes.splashRoute:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.loginRoute:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return MaterialPageRoute(builder: (_) =>  LoginScreen());
       case Routes.registerRoute:
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case Routes.homeLayoutRoute:

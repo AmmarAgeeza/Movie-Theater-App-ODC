@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_odc/core/resources/color_manager.dart';
 
-import '../../view_model/cubit/home_layout_cubit/home_layout_cubit.dart';
-import '../../view_model/cubit/home_layout_cubit/home_layout_states.dart';
+import '../../../view_model/cubit/home_layout_cubit/home_layout_cubit.dart';
+import '../../../view_model/cubit/home_layout_cubit/home_layout_states.dart';
 
 class HomeLayoutScreen extends StatelessWidget {
   const HomeLayoutScreen({Key? key}) : super(key: key);

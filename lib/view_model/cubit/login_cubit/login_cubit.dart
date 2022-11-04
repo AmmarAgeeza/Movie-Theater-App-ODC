@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app_odc/view/screens/home_layout_screen.dart';
 
-import '../../../model/login_model.dart';
-import '../../../view/components/core_components/shared_functions.dart';
+import '../../../model/login_model/login_model.dart';
 import '../../database/local/cache_helper.dart';
 import '../../database/network/dio_helper.dart';
 import '../../database/network/end_points.dart';
@@ -14,7 +12,7 @@ class LoginCubit extends Cubit<LoginStates> {
 
   static LoginCubit get(context) => BlocProvider.of(context);
 
-  var formKey = GlobalKey<FormState>();
+//change password icon logic
   IconData suffixIcon = Icons.visibility;
   bool isPasswordShown = true;
 
@@ -24,35 +22,26 @@ class LoginCubit extends Cubit<LoginStates> {
     emit(ChangePasswordIconState());
   }
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  //login logic
   LoginModel? loginModel;
-  String? token;
 
-  void login(context) {
+  void login({required String email, required String password}) async {
     emit(LoginLoading());
-    DioHelper.postData(url: loginEndPoint, data: {
-      'email': emailController.text,
-      'password': passwordController.text,
+    await DioHelper.postData(url: loginEndPoint, data: {
+      'email': email,
+      'password': password,
     }).then((value) {
-      loginModel = LoginModel.fromJson(value.data);
-      print(loginModel!.accessToken);
-      token = loginModel!.accessToken;
-      CacheHelper.saveData(key: 'token', value: loginModel!.accessToken)
-          .then((value) {
-        loginModel!.accessToken;
-        navigateAndFinish(context, const HomeLayoutScreen());
-      });
-      emit(LoginSuccess());
+      if (value.statusCode == 200) {
+        loginModel = LoginModel.fromJson(value.data);
+        CacheHelper.saveData(key: 'token', value: loginModel!.accessToken)
+            .then((value) {
+          loginModel!.accessToken;
+        });
+        emit(LoginSuccess());
+      }
     }).catchError((e) {
       print(e.toString());
       emit(LoginError());
     });
-  }
-
-  void validateData(context) {
-    if (formKey.currentState!.validate()) {
-      login(context);
-    }
   }
 }
