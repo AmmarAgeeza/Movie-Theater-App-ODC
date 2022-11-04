@@ -9,9 +9,10 @@ import 'package:movie_app_odc/view_model/cubit/home_page_cubit/home_page_states.
 
 import '../../../core/resources/assets_manager.dart';
 import '../../../core/resources/fonts_manager.dart';
+import '../menu_screen/menu_screen.dart';
 
 class HomePageScreen extends StatelessWidget {
-   const HomePageScreen({Key? key}) : super(key: key);
+  const HomePageScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,10 @@ class HomePageScreen extends StatelessWidget {
               elevation: 0,
               leading: IconButton(
                   onPressed: () {
-                    HomePageCubit.get(context).globalKey.currentState!.openDrawer();
+                    HomePageCubit.get(context)
+                        .globalKey
+                        .currentState!
+                        .openDrawer();
                   },
                   icon: Icon(
                     Icons.menu,
@@ -104,13 +108,7 @@ class HomePageScreen extends StatelessWidget {
               ],
             ),
           ),
-          drawer: SafeArea(
-            child: Column(
-              children: const [
-                Text('ss'),
-              ],
-            ),
-          ),
+          drawer: const MenuScreen(),
         );
       },
     );
@@ -121,9 +119,9 @@ class HomePageScreen extends StatelessWidget {
     return Stack(
       alignment: AlignmentDirectional.bottomCenter,
       children: [
-        Image.network(nowPlayingMoviesModel!.imageUrl!),
+        Image.network(nowPlayingMoviesModel.imageUrl!),
         Text(
-          nowPlayingMoviesModel!.name!,
+          nowPlayingMoviesModel.name!,
           style: AppTextStyles.login(customFontSize: 15),
         ),
       ],
@@ -135,9 +133,9 @@ class HomePageScreen extends StatelessWidget {
     return Stack(
       alignment: AlignmentDirectional.bottomCenter,
       children: [
-        Image.network(upComingMoviesModel!.imageUrl!),
+        Image.network(upComingMoviesModel.imageUrl!),
         Text(
-          upComingMoviesModel!.name!,
+          upComingMoviesModel.name!,
           style: AppTextStyles.login(customFontSize: 15),
         ),
       ],
